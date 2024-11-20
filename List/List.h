@@ -62,10 +62,20 @@ public:
 		head = newNode;
 	}
 
-	void pushBack(T value)
+		void pushBack(T value)
 	{
-		//TODO Implement the pushBack method that adds a new element at the end of the list.
-
+		Node* newNode = new Node(value);
+		if (tail == nullptr)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			tail->next = newNode;
+			newNode->prev = tail;
+			tail = newNode;
+		}
 	}
 
 	T popBack()
